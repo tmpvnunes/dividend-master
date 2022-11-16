@@ -30,9 +30,9 @@ This class will load some popular stocks in the S&P500
 @Component
 public class DataLoader implements ApplicationRunner {
 
-    private RoleRepository roleRepository;
-    private UserRepository userRepository;
-    private StockRepository stockRepository;
+    private final RoleRepository roleRepository;
+    private final UserRepository userRepository;
+    private final StockRepository stockRepository;
     private final PasswordEncoder passwordEncoder;
 
 
@@ -72,9 +72,9 @@ public class DataLoader implements ApplicationRunner {
     private void LoadUsers() {
         List<User> userList = new ArrayList<>();
 
-        User user = new User("admin", passwordEncoder.encode("admin"), "tmpvnunes@gmail.com", ERole.ROLE_ADMIN);
+        User user = new User("admin", passwordEncoder.encode("admin"), "admin@gmail.com", ERole.ROLE_ADMIN);
         userList.add(user);
-        User user2 = new User("mod", passwordEncoder.encode("mod"), "test@gmail.com", ERole.ROLE_MODERATOR);
+        User user2 = new User("mod", passwordEncoder.encode("mod"), "mod@gmail.com", ERole.ROLE_MODERATOR);
         userList.add(user2);
         User user3 = new User("user", passwordEncoder.encode("user"), "dev@gmail.com", ERole.ROLE_USER);
         userList.add(user3);
