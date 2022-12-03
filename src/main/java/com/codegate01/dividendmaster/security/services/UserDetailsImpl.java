@@ -8,6 +8,8 @@ import org.springframework.security.core.userdetails.UserDetails;
 
 import java.util.Collection;
 import java.util.List;
+import java.util.logging.Level;
+import java.util.logging.Logger;
 import java.util.stream.Collectors;
 
 public class UserDetailsImpl implements UserDetails {
@@ -22,6 +24,7 @@ public class UserDetailsImpl implements UserDetails {
     private String password;
 
     private Collection<? extends GrantedAuthority> authorities;
+    private Logger logger = Logger.getLogger(UserDetailsImpl.class.getName());
 
     public UserDetailsImpl(Long id, String username, String email, String password,
                            Collection<? extends GrantedAuthority> authorities) {
@@ -30,6 +33,7 @@ public class UserDetailsImpl implements UserDetails {
         this.email = email;
         this.password = password;
         this.authorities = authorities;
+        logger.log(Level.INFO,"User created");
     }
 
     public static UserDetailsImpl build(User user) {

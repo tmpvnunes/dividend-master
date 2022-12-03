@@ -1,14 +1,10 @@
 package com.codegate01.dividendmaster.service;
 
-import com.codegate01.dividendmaster.errors.StockNotFoundException;
+import com.codegate01.dividendmaster.exceptions.StockNotFoundException;
 import com.codegate01.dividendmaster.model.Stock;
 import com.codegate01.dividendmaster.repository.StockRepository;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.data.jpa.repository.Modifying;
-import org.springframework.data.jpa.repository.Query;
-import org.springframework.data.repository.query.Param;
 import org.springframework.stereotype.Service;
-import org.springframework.transaction.annotation.Transactional;
 
 import java.util.Date;
 import java.util.List;

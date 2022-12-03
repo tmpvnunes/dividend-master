@@ -1,6 +1,6 @@
 package com.codegate01.dividendmaster.service;
 
-import com.codegate01.dividendmaster.errors.UserNotFoundException;
+import com.codegate01.dividendmaster.exceptions.UserNotFoundException;
 import com.codegate01.dividendmaster.model.User;
 import com.codegate01.dividendmaster.repository.UserRepository;
 import org.springframework.beans.factory.annotation.Autowired;

@@ -1,6 +1,6 @@
 package com.codegate01.dividendmaster.service;
 
-import com.codegate01.dividendmaster.errors.PortfolioNotFoundException;
+import com.codegate01.dividendmaster.exceptions.PortfolioNotFoundException;
 import com.codegate01.dividendmaster.model.Portfolio;
 import com.codegate01.dividendmaster.repository.PortfolioRepository;
 import org.springframework.beans.factory.annotation.Autowired;

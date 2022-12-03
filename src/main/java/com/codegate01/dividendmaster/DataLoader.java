@@ -22,6 +22,7 @@ import org.springframework.stereotype.Component;
 import java.io.IOException;
 import java.util.ArrayList;
 import java.util.List;
+import java.util.logging.Logger;
 
 /*
 Tests only
@@ -35,7 +36,7 @@ public class DataLoader implements ApplicationRunner {
     private final StockRepository stockRepository;
     private final PasswordEncoder passwordEncoder;
 
-
+    private Logger logger = Logger.getLogger(DataLoader.class.getName());
     @Autowired
     public DataLoader(RoleRepository roleRepository, StockRepository stockRepository, UserRepository userRepository, PasswordEncoder passwordEncoder) {
         this.roleRepository = roleRepository;
@@ -48,13 +49,15 @@ public class DataLoader implements ApplicationRunner {
     public void run(ApplicationArguments args) throws Exception {
 
         System.out.println("DataLoader is running...");
-        //LoadStocks();
+        loadRoles();
+        loadUsers();
+        //loadStocks();
     }
 
     /*
     CREATES THE DEFAULT APPLICATION ROLES
      */
-    private void LoadRoles() {
+    private void loadRoles() {
 
         List<Role> roleList = new ArrayList<>();
 
@@ -69,7 +72,7 @@ public class DataLoader implements ApplicationRunner {
 
     }
 
-    private void LoadUsers() {
+    private void loadUsers() {
         List<User> userList = new ArrayList<>();
 
         User user = new User("admin", passwordEncoder.encode("admin"), "admin@gmail.com", ERole.ROLE_ADMIN);
@@ -82,7 +85,10 @@ public class DataLoader implements ApplicationRunner {
         userRepository.saveAll(userList);
     }
 
-    private void LoadStocks() throws IOException {
+private void buildJwt(){
+
+}
+    private void loadStocks() throws IOException {
 
         Stock stock = new Stock("T", "AT&T", "NYSE", "Communications",
                 "AT&T Inc. provides telecommunication, media, and technology services worldwide."
